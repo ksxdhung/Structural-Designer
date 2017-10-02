@@ -52,6 +52,7 @@
             this.btnVeDam = this.Factory.CreateRibbonButton();
             this.grCot = this.Factory.CreateRibbonGroup();
             this.grVach = this.Factory.CreateRibbonGroup();
+            this.btnBeamData = this.Factory.CreateRibbonButton();
             this.rbStructural.SuspendLayout();
             this.grGio.SuspendLayout();
             this.grDam.SuspendLayout();
@@ -116,6 +117,7 @@
             this.grDam.Items.Add(this.btnBotriThepdam);
             this.grDam.Items.Add(this.btnThuyetminhdam);
             this.grDam.Items.Add(this.btnVeDam);
+            this.grDam.Items.Add(this.btnBeamData);
             this.grDam.Label = "Tính toán dầm";
             this.grDam.Name = "grDam";
             // 
@@ -181,6 +183,12 @@
             this.grVach.Label = "Tính toán vách";
             this.grVach.Name = "grVach";
             // 
+            // btnBeamData
+            // 
+            this.btnBeamData.Label = "Lấy dữ liệu";
+            this.btnBeamData.Name = "btnBeamData";
+            this.btnBeamData.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnBeamData_Click);
+            // 
             // Calculate
             // 
             this.Name = "Calculate";
@@ -216,6 +224,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnBotriThepdam;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnThuyetminhdam;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnVeDam;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnBeamData;
     }
 
     partial class ThisRibbonCollection

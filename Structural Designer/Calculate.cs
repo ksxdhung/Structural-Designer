@@ -379,7 +379,7 @@ namespace Structural_Designer
                         //Chuyển sang sheet2
                         Worksheet CalSheet = CurWB.Worksheets.Add();
                         CalSheet.Name = "Calculation";
-                        CalSheet.Activate();
+                        //CalSheet.Activate();
                     }
                 }
                 catch (Exception ex)
@@ -405,6 +405,26 @@ namespace Structural_Designer
                 Globals.ThisAddIn.Application.Workbooks.Open(WBname);
                 btnThongsodam.Enabled = true;
             }
+        }
+
+        private void btnBeamData_Click(object sender, RibbonControlEventArgs e)
+        {
+            Workbook WB = Globals.ThisAddIn.Application.ActiveWorkbook;
+            Worksheet Input = WB.Worksheets["Input Data"];
+            for (double i = 2; Input.Range["AB" + i].Value!=null; i++)
+            {
+                string s = Convert.ToString(Input.Range["AB" + i].Value);
+                string [] sub =s.Split(';');
+                Input.Range["AB" + i].Value = sub[0];
+                Input.Range["AC" + i].Value = sub[1];
+            }
+            Input.Range["AB1"].Value = "Start Point";
+            Input.Range["AC1"].Value = "End Point";
+            Input.Columns[27].NumberFormat = "0";
+            Input.Columns["AB"].NumberFormat = "0";
+            Input.Columns["AC"].NumberFormat = "0";
+            Input.Columns["AJ"].NumberFormat = "0";
+            Input.Columns["AK"].NumberFormat = "0";
         }
     }
 
